@@ -20,7 +20,11 @@
         <a-entity id="camera" camera look-controls position="41 22 0" rotation="-30.188566252342955 89.05941375954491 1.8581021296092597" data-aframe-inspector-original-camera>
             <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat" raycaster></a-entity>
         </a-entity>
-        
+
+        <!-- spaceship. -->
+        <a-cylinder id="orbit" src="#spaceship" position="-20 5 20" animation="property:rotation; to: 0 360 0; dur: 20000; loop: true">
+        </a-cylinder>
+
         <a-assets>
             <img src="./textures/sky.jpeg" id="sky" crossorigin="anonymous">
             <img src="./textures/2k_sun.jpg" id="sun">
@@ -36,9 +40,8 @@
 
         </a-assets>
 
-        <a-sky src="#sky"></a-sky>
+        <a-sky src="#sky"></a-sky>       
 
-    
         <a-entity id="orbit" position="0 3 0" rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 40000; pauseEvents: pauseOrbit; resumeEvents: resumeOrbit;">
             <a-sphere
                 planet="info: MERCURY. The smallest planet in our solar system and the closest to the Sun, is only slightly larger than Earth's Moon. Its surface is covered with tens of thousands of impact craters. From Mercury's surface, the Sun would appear more than three times larger than when viewed from Earth, and the sunlight would be up to 11 times brighter. Mercury is the fastest planet and revolves around the Sun every 88 Earth days. Mercury is appropriately named after the fastest of the ancient Roman gods. The first spacecraft to visit Mercury was Mariner 10, which imaged 45% of its surface. NASA's MESSENGER (MErcury Surface, Space ENvironment, GEochemistry, and Ranging) mission passed Mercury three times in 2008-2009 and orbited the planet from 2011 to 2015, mapping the entire surface."
