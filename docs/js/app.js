@@ -8,7 +8,7 @@ AFRAME.registerComponent('planet', {
         const camera = document.querySelector('#camera')
 
         planetElm.addEventListener('mouseenter', (evt) => {
-            document.querySelector('#orbit').emit('pauseOrbit', {}, false);
+            document.querySelector('.orbit').emit('pauseOrbit', {}, false);
 
             const infoText = $this.data.info
             planetInfo.setAttribute('value', infoText)
@@ -20,7 +20,7 @@ AFRAME.registerComponent('planet', {
         });
 
         planetElm.addEventListener('mouseleave', (evt) => {
-            document.querySelector('#orbit').emit('resumeOrbit', {}, false);
+            document.querySelector('.orbit').emit('resumeOrbit', {}, false);
             planetInfo.setAttribute('visible', false)
         });
     }

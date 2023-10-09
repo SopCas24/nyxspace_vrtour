@@ -17,13 +17,9 @@
     <img src="textures/meteor.jpeg" id="meteor"> -->
 
     <a-scene>
-        <a-entity id="camera" camera look-controls position="41 22 0" rotation="-30.188566252342955 89.05941375954491 1.8581021296092597" data-aframe-inspector-original-camera>
+        <a-entity id="camera" camera look-controls position="41 22 0" rotation="-33.188566252342955 89.05941375954491 1.8581021296092597" data-aframe-inspector-original-camera>
             <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat" raycaster></a-entity>
         </a-entity>
-
-        <!-- spaceship. -->
-        <a-cylinder id="orbit" src="#spaceship" position="-20 5 20" animation="property:rotation; to: 0 360 0; dur: 20000; loop: true">
-        </a-cylinder>
 
         <a-assets>
             <img src="./textures/sky.jpeg" id="sky" crossorigin="anonymous">
@@ -36,65 +32,68 @@
             <img src="./textures/2k_saturn.jpg" id="saturn">
             <img src="./textures/2k_uranus.jpg" id="uranus">
             <img src="./textures/2k_neptune.jpg" id="neptune">
-            <img src="./textures/OIP.jpg" id="spaceship">
-
+            <img src="./textures/OIP.jpg" id="spaceship-img">
         </a-assets>
 
-        <a-sky src="#sky"></a-sky>       
+        <a-sky src="#sky"></a-sky>  
 
-        <a-entity id="orbit" position="0 3 0" rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 40000; pauseEvents: pauseOrbit; resumeEvents: resumeOrbit;">
+        <a-entity class="spaceship-orbit" position="0 3 0" rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; pauseEvents: pauseOrbit; resumeEvents: resumeOrbit;">
+            <!-- orbit for spaceship -->
+            <a-entity id="spaceship-conatiner" position="-21.50238 4.08679 18.19442" rotation="90 45 0">
+                <!-- spaceship -->
+                <a-cylinder id="spaceship" src="#spaceship-img" geometry="height: 2" material=""></a-cylinder>
+            </a-entity>
+     </a-entity>
+
+        <a-entity class="orbit" position="0 3 0" rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 40000; pauseEvents: pauseOrbit; resumeEvents: resumeOrbit;">
             <a-sphere
-                planet="info: MERCURY. The smallest planet in our solar system and the closest to the Sun, is only slightly larger than Earth's Moon. Its surface is covered with tens of thousands of impact craters. From Mercury's surface, the Sun would appear more than three times larger than when viewed from Earth, and the sunlight would be up to 11 times brighter. Mercury is the fastest planet and revolves around the Sun every 88 Earth days. Mercury is appropriately named after the fastest of the ancient Roman gods. The first spacecraft to visit Mercury was Mariner 10, which imaged 45% of its surface. NASA's MESSENGER (MErcury Surface, Space ENvironment, GEochemistry, and Ranging) mission passed Mercury three times in 2008-2009 and orbited the planet from 2011 to 2015, mapping the entire surface."
+                planet="info: MERCURY. \nThe smallest planet in our solar system and the closest to the Sun, is only slightly larger than Earth's Moon. Its surface is covered with tens of thousands of impact craters. From Mercury's surface, the Sun would appear more than three times larger than when viewed from Earth, and the sunlight would be up to 11 times brighter. Mercury is the fastest planet and revolves around the Sun every 88 Earth days. Mercury is appropriately named after the fastest of the ancient Roman gods. The first spacecraft to visit Mercury was Mariner 10, which imaged 45% of its surface. NASA's MESSENGER (MErcury Surface, Space ENvironment, GEochemistry, and Ranging) mission passed Mercury three times in 2008-2009 and orbited the planet from 2011 to 2015, mapping the entire surface."
                 geometry="primitive:sphere; radius:1" material="shader:flat; src:#mercury" 
                 position="0 0 -30">
             </a-sphere>
             <a-sphere
-                planet="info: JUPITER. It is the fifth planet from our Sun and is by far the largest planet in the solar system: more than twice the mass of all the other planets combined. Jupiter's swirls and swirls are actually cold, windy clouds of ammonia and water, floating in an atmosphere of hydrogen and helium. Jupiter's iconic Great Red Spot is a giant storm larger than Earth that has raged for hundreds of years. Jupiter is named after the king of the ancient Roman gods."
+                planet="info: JUPITER. \nIt is the fifth planet from our Sun and is by far the largest planet in the solar system: more than twice the mass of all the other planets combined. Jupiter's swirls and swirls are actually cold, windy clouds of ammonia and water, floating in an atmosphere of hydrogen and helium. Jupiter's iconic Great Red Spot is a giant storm larger than Earth that has raged for hundreds of years. Jupiter is named after the king of the ancient Roman gods."
                 radius="3.5" material="shader:flat; src:#jupiter" 
                 position="0 0 30">
             </a-sphere>
             <a-sphere
-                planet="info: URANUS. It is very cold and windy. It is surrounded by faint rings and more than two dozen small moons as it rotates at an angle of nearly 90 degrees to the plane of its orbit. This unique tilt makes Uranus appear to spin sideways. Uranus is blue-green in color due to large amounts of methane, which absorbs red light but allows blues to reflect back into space. The atmosphere is composed mainly of hydrogen and helium, but also includes large amounts of water, ammonia, and methane. Astronomer William Herschel unsuccessfully attempted to name his discovery Georgium Sidus in honor of his patron, English King George III. Instead, the planet was eventually named after Uranus, the Greek god of the sky, who was also the father of Cronus (or Saturn in Roman mythology)"
+                planet="info: URANUS. \nIt is very cold and windy. It is surrounded by faint rings and more than two dozen small moons as it rotates at an angle of nearly 90 degrees to the plane of its orbit. This unique tilt makes Uranus appear to spin sideways. Uranus is blue-green in color due to large amounts of methane, which absorbs red light but allows blues to reflect back into space. The atmosphere is composed mainly of hydrogen and helium, but also includes large amounts of water, ammonia, and methane. Astronomer William Herschel unsuccessfully attempted to name his discovery Georgium Sidus in honor of his patron, English King George III. Instead, the planet was eventually named after Uranus, the Greek god of the sky, who was also the father of Cronus (or Saturn in Roman mythology)"
                 radius="2" material="shader:flat; src:#uranus" 
                 position="30 0 0">
             </a-sphere>
             <a-sphere
-                planet="info: EARTH. The fifth largest planet in the solar system, it is the only world in our solar system with liquid water on the surface. Slightly larger than nearby Venus, Earth is the largest of the four planets closest to the Sun, all of which are made of rock and metal. Earth is the only planet in the Solar System whose English name does not come from Greek or Roman mythology. The name was taken from Old English and Germanic. It simply means the ground. Of course, there are many names for our planet in the thousands of languages spoken by the inhabitants of the third planet from the Sun"
+                planet="info: EARTH. \nThe fifth largest planet in the solar system, it is the only world in our solar system with liquid water on the surface. Slightly larger than nearby Venus, Earth is the largest of the four planets closest to the Sun, all of which are made of rock and metal. Earth is the only planet in the Solar System whose English name does not come from Greek or Roman mythology. The name was taken from Old English and Germanic. It simply means the ground. Of course, there are many names for our planet in the thousands of languages spoken by the inhabitants of the third planet from the Sun"
                 radius="3" material="shader:flat; src:#earth" 
                 position="-30 0 0">
             </a-sphere>
             <a-sphere
-                planet="info: SATURN. It is the sixth planet from the Sun and the second largest planet in our solar system. Solar system. Adorned with a dazzling icy ring system, Saturn is unique among the planets. Unique among the planets. Like its gas giant companion Jupiter, Saturn is a huge ball composed mainly of hydrogen and helium. Composed mainly of hydrogen and helium. Saturn, the farthest planet from Earth discovered by the unaided human eye, has been known since antiquity. Known since antiquity. The planet is named for the Roman god of agriculture and wealth, who was also agriculture and wealth, who was also the father of Jupiter."
+                planet="info: SATURN. \nIt is the sixth planet from the Sun and the second largest planet in our solar system. Solar system. Adorned with a dazzling icy ring system, Saturn is unique among the planets. Unique among the planets. Like its gas giant companion Jupiter, Saturn is a huge ball composed mainly of hydrogen and helium. Composed mainly of hydrogen and helium. Saturn, the farthest planet from Earth discovered by the unaided human eye, has been known since antiquity. Known since antiquity. The planet is named for the Roman god of agriculture and wealth, who was also agriculture and wealth, who was also the father of Jupiter."
                 radius="2.5" material="shader:flat; src:#saturn" 
                 position="20 0 20">
             </a-sphere>
             <a-sphere
-                planet="info: VENUS. A cloud-shrouded planet named after a goddess of love, it is often referred to as Earth's twin. But if we zoom in a little closer, Venus becomes hellish. Our nearest planetary neighbor, the second planet from the Sun, has a surface hot enough to melt lead. The atmosphere is so thick that, from the surface, the Sun is just a speck of light. It is more an opposite of Earth than a twin: Venus spins backwards, has a day longer than its year, and lacks any semblance of seasons. It may once have been a habitable ocean world, like Earth, but that was at least a billion years ago. A runaway greenhouse effect turned all the surface water into vapor, which then slowly seeped out into space. Today's surface volcanic rock is affected by high temperatures and pressures. Venus may offer lessons on what it takes for life to begin: on Earth, in our solar system, or throughout the galaxy. The ingredients are all there, or at least they used to be. By studying why our neighboring world took such a different direction with respect to habitability, we might discover what could make other worlds right. The temperature, air pressure, and chemistry are much nicer higher up in those thick, yellow clouds"
+                planet="info: VENUS. \nA cloud-shrouded planet named after a goddess of love, it is often referred to as Earth's twin. But if we zoom in a little closer, Venus becomes hellish. Our nearest planetary neighbor, the second planet from the Sun, has a surface hot enough to melt lead. The atmosphere is so thick that, from the surface, the Sun is just a speck of light. It is more an opposite of Earth than a twin: Venus spins backwards, has a day longer than its year, and lacks any semblance of seasons. It may once have been a habitable ocean world, like Earth, but that was at least a billion years ago. A runaway greenhouse effect turned all the surface water into vapor, which then slowly seeped out into space. Today's surface volcanic rock is affected by high temperatures and pressures. Venus may offer lessons on what it takes for life to begin: on Earth, in our solar system, or throughout the galaxy. The ingredients are all there, or at least they used to be. By studying why our neighboring world took such a different direction with respect to habitability, we might discover what could make other worlds right. The temperature, air pressure, and chemistry are much nicer higher up in those thick, yellow clouds"
                 radius="2.3" material="shader:flat; src:#venus"
                 position="-20 0 -20">
             </a-sphere>
             <a-sphere
-                planet="info: MARS. It is dry, rocky and very cold. Mars, the fourth planet from the Sun, is one of the two closest neighboring planets to Earth (Venus is the other). Mars is one of the easiest planets to spot in the night sky: it looks like a bright red dot of light. Despite being inhospitable to humans, robotic rovers, such as NASA's Perseverance rover, are serving as pioneers to bring humans to the surface of the Red Planet."
+                planet="info: MARS. \nIt is dry, rocky and very cold. Mars, the fourth planet from the Sun, is one of the two closest neighboring planets to Earth (Venus is the other). Mars is one of the easiest planets to spot in the night sky: it looks like a bright red dot of light. Despite being inhospitable to humans, robotic rovers, such as NASA's Perseverance rover, are serving as pioneers to bring humans to the surface of the Red Planet."
                 radius="2.5" material="shader:flat; src:#mars" 
                 position="-20 0 20">
             </a-sphere>
             <a-sphere
-                planet="info: NEPTUNE. Dark, cold, and buffeted by supersonic winds, giant Neptune is the eighth and most distant major planet orbiting our Sun. Neptune, more than 30 times farther from the Sun than Earth, is not visible to the naked eye. In 2011, Neptune completed its first 165-year orbit since its discovery. The planet's rich blue color comes from methane in its atmosphere, which absorbs red wavelengths of light but allows blue wavelengths to reflect back into space. Neptune was the first planet located by mathematical calculations. Using predictions sent to him by French astronomer Urbain Le Verrier, based on perturbations in the orbit of Uranus, German astronomer Johann Galle was the first to observe the planet in 1846. The planet is named after the Roman god of the sea, as suggested by Le Verrier."
+                planet="info: NEPTUNE. \nDark, cold, and buffeted by supersonic winds, giant Neptune is the eighth and most distant major planet orbiting our Sun. Neptune, more than 30 times farther from the Sun than Earth, is not visible to the naked eye. In 2011, Neptune completed its first 165-year orbit since its discovery. The planet's rich blue color comes from methane in its atmosphere, which absorbs red wavelengths of light but allows blue wavelengths to reflect back into space. Neptune was the first planet located by mathematical calculations. Using predictions sent to him by French astronomer Urbain Le Verrier, based on perturbations in the orbit of Uranus, German astronomer Johann Galle was the first to observe the planet in 1846. The planet is named after the Roman god of the sea, as suggested by Le Verrier."
                 radius="2" material="shader:flat; src:#neptune" 
                 position="20 0 -20">
             </a-sphere>
         </a-entity>
-
         <a-entity 
-            planet="info: THE SUN. It's gravity holds the solar system together, keeping everything from the largest planets to the smallest debris particles in orbit. The connection and interactions between the Sun and Earth determine the seasons, ocean currents, weather, climate, radiation belts, and auroras. Although it is special to us , there are billions of stars like our Sun scattered throughout the Milky Way. The Sun has many names in many cultures. The Latin word for Sun is sol which is the main adjective for everything related to the Sun: solar"
+            planet="info: THE SUN. \nIt's gravity holds the solar system together, keeping everything from the largest planets to the smallest debris particles in orbit. The connection and interactions between the Sun and Earth determine the seasons, ocean currents, weather, climate, radiation belts, and auroras. Although it is special to us , there are billions of stars like our Sun scattered throughout the Milky Way. The Sun has many names in many cultures. The Latin word for Sun is sol which is the main adjective for everything related to the Sun: solar"
             geometry="primitive:sphere; radius:6"
             material="shader:flat; src:#sun"
             position="0 0 0">
         </a-entity>
-
         <a-text id="planet-info" width: 2; height: 2; width="2" color="white" visible="false"></a-text>
     </a-scene>
-
 </body>
-
 </html>
